@@ -20,7 +20,7 @@ class Client
     public const METHOD_DELETE = 'DELETE';
     public const METHOD_OPTIONS = 'OPTIONS';
 
-    private string $urlPath = '/api/v1/';
+    private ?string $urlPath = '/api/v1/';
     private ?string $username = null;
     private ?string $password = null;
     private ?string $apiKey = null;
@@ -28,13 +28,13 @@ class Client
     private ?CurlHandle $lastCh;
 
     /**
-     * @param string $url An site URL.
+     * @param ?string $url An site URL.
      * @param ?int $port A port.
      */
     public function __construct
     (
-        private string $url,
-        private ?int   $port = null
+        private ?string $url = null,
+        private ?int    $port = null
     )
     {
     }
@@ -65,6 +65,15 @@ class Client
     public function setSecretKey(?string $secretKey): self
     {
         $this->secretKey = $secretKey;
+        return $this;
+    }
+
+    /**
+     * Set a url
+     */
+    public function setUrl(string $url): static
+    {
+        $this->url = $url;
         return $this;
     }
 

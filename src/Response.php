@@ -45,7 +45,7 @@ class Response
             return json_decode($body);
         }
 
-        throw new \JsonException('String is no a json format.');
+        throw new \JsonException('String is not a json format.');
     }
 
     private function is_json(string $value): bool
