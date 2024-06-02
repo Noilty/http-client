@@ -1,6 +1,7 @@
 {
   "name": "noilty/http-client",
   "description": "HTTP Client",
+  "version": "1.0.0",
   "license": "MIT",
   "authors": [
     {
